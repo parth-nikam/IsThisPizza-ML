@@ -13,6 +13,7 @@
 		7BAC5E8B29CFF87900F00323 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC5E8929CFF87900F00323 /* Main.storyboard */; };
 		7BAC5E8D29CFF87A00F00323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC5E8C29CFF87A00F00323 /* Assets.xcassets */; };
 		7BAC5E9029CFF87A00F00323 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC5E8E29CFF87A00F00323 /* LaunchScreen.storyboard */; };
+		7BAC5E9829CFF8A000F00323 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC5E9729CFF8A000F00323 /* Inceptionv3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7BAC5E8C29CFF87A00F00323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BAC5E8F29CFF87A00F00323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BAC5E9129CFF87A00F00323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BAC5E9729CFF8A000F00323 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				7BAC5E8C29CFF87A00F00323 /* Assets.xcassets */,
 				7BAC5E8E29CFF87A00F00323 /* LaunchScreen.storyboard */,
 				7BAC5E9129CFF87A00F00323 /* Info.plist */,
+				7BAC5E9729CFF8A000F00323 /* Inceptionv3.mlmodel */,
 			);
 			path = "SeeFood ML";
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BAC5E8829CFF87900F00323 /* ViewController.swift in Sources */,
+				7BAC5E9829CFF8A000F00323 /* Inceptionv3.mlmodel in Sources */,
 				7BAC5E8429CFF87900F00323 /* AppDelegate.swift in Sources */,
 				7BAC5E8629CFF87900F00323 /* SceneDelegate.swift in Sources */,
 			);
