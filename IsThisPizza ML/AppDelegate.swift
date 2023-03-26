@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  SeeFood ML
+//  IsThisPizza ML
 //
 //  Created by Parth Nikam on 26/03/23.
 //
