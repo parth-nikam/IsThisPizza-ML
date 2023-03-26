@@ -19,7 +19,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         
         imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = false
     }
     
@@ -36,28 +35,42 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         imagePicker.dismiss(animated: true, completion: nil)
     }
-    
+
     func detect(image: CIImage){
-        guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else {
-            fatalError("Loading CoreML model failed.")
-        }
-        
-        let request = VNCoreMLRequest(model: model) { (request, error) in
-            guard let results = request.results as? [VNClassificationObservation] else{
-                fatalError("Model failed to process image")
-            }
-            print(results)
-        }
-        
-        let handler = VNImageRequestHandler(ciImage: image)
         do {
-            try handler.perform([request])
+            let model = try VNCoreMLModel(for: Inceptionv3(configuration: MLModelConfiguration()).model)
+
+            let request = VNCoreMLRequest(model: model) { (request, error) in
+                guard let results = request.results as? [VNClassificationObservation] else{
+                    fatalError("Model failed to process image")
+                }
+                if let firstResult = results.first {
+                    if firstResult.identifier.contains("pizza"){
+                        self.navigationItem.title = "This is Pizza!!!🍕"
+                    } else {
+                        self.navigationItem.title = "Not a Pizza😭"
+                    }
+                }
+            }
+
+            let handler = VNImageRequestHandler(ciImage: image)
+            do {
+                try handler.perform([request])
+            } catch {
+                print(error)
+            }
         } catch {
-            print(error)
+            fatalError("Loading CoreML model failed.")
         }
     }
     
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
+        imagePicker.sourceType = .camera
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func uploadTapped(_ sender: UIBarButtonItem) {
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker,animated: true, completion: nil)
     }
 }

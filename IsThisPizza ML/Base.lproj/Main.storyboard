@@ -30,11 +30,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3w1-ja-iGw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="hfw-go-LA6">
-                            <connections>
-                                <action selector="cameraTapped:" destination="BYZ-38-t0r" id="Fbr-6d-chQ"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="hfw-go-LA6">
+                                <connections>
+                                    <action selector="cameraTapped:" destination="BYZ-38-t0r" id="Fbr-6d-chQ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Upload " image="photo" catalog="system" id="vQT-Jd-ciM">
+                                <connections>
+                                    <action selector="uploadTapped:" destination="BYZ-38-t0r" id="KEi-5P-SP3"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="rId-al-pdj" id="VPf-nR-Nu1"/>
@@ -64,6 +71,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
