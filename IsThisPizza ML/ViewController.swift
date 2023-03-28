@@ -19,11 +19,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         
         imagePicker.delegate = self
-        imagePicker.allowsEditing = false
+        imagePicker.allowsEditing = true
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+        if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             imageView.image = userPickedImage
             
             guard let ciimage = CIImage(image: userPickedImage) else{
@@ -37,6 +37,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func detect(image: CIImage){
+        
         do {
             let model = try VNCoreMLModel(for: Inceptionv3(configuration: MLModelConfiguration()).model)
 
